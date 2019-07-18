@@ -10,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 5881433463132462726, guid: e99f068ae5fe0de44a8c413f98e64cd7,
         type: 3}
       propertyPath: m_Name
-      value: Block (1)
+      value: PurpleB
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881433463132462726, guid: e99f068ae5fe0de44a8c413f98e64cd7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Breakable
       objectReference: {fileID: 0}
     - target: {fileID: 5881433463132462715, guid: e99f068ae5fe0de44a8c413f98e64cd7,
         type: 3}
@@ -81,6 +86,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.63842607
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881433463132462714, guid: e99f068ae5fe0de44a8c413f98e64cd7,
+        type: 3}
+      propertyPath: clipVolume
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e99f068ae5fe0de44a8c413f98e64cd7, type: 3}

@@ -16,10 +16,21 @@ public class Ball : MonoBehaviour{
     //Velocity of the ball
     [SerializeField]private float velX = 0f, velY = 10f;
 
+    //Array con sonidos de la pelota
+    [SerializeField] private AudioClip[] ballSounds;
+    private AudioClip currentClip;
+    //Obtener componentes y guardarlos en cache
+    private AudioSource myAudioSource;
+    private Rigidbody2D myRB;
+
+    private string collisionName;
     // Start is called before the first frame update
     void Start(){
         //Diferencia entre la pelota y el paddle
         this.paddleToBallVector = transform.position - this.paddle1.transform.position;
+        //Inicializar los componentes
+        myAudioSource = GetComponent<AudioSource>();
+        myRB = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -43,16 +54,19 @@ public class Ball : MonoBehaviour{
         if (Input.GetMouseButtonDown(0))
         {
             //Obtiene el componente Rigid Body y la velocidad se da como un vector
-            GetComponent<Rigidbody2D>().velocity = new Vector2(velX, velY);
+            myRB.velocity = new Vector2(velX, velY);
             hasClicked = true;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (hasClicked) {
-        //Get Component es para obtener un componente en el objeto y acceder a los elementos.
-        GetComponent<AudioSource>().Play();
+        collisionName = collision.collider.name;
+        if (hasClicked && (collisionName.Equals("Walls") || collisionName.Equals("Paddle"))) {
+            currentClip = ballSounds[Random.Range(0, ballSounds.Length)];
+            //Get Component es para obtener un componente en el objeto y acceder a los elementos.
+            //PlayOneShot es para que suene sin importar si otro audio suena
+            myAudioSource.PlayOneShot(currentClip);
         }
     }
 }

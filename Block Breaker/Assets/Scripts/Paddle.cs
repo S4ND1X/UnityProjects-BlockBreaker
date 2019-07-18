@@ -7,12 +7,12 @@ public class Paddle : MonoBehaviour
     [SerializeField] private float cameraWidthUnits = 16f;
     [SerializeField] private float minX = 1f;
     [SerializeField] private float maxX = 15f;
-    
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
