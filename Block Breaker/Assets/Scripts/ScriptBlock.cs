@@ -7,19 +7,38 @@ public class ScriptBlock : MonoBehaviour
 
     [SerializeField] private AudioClip clip;
     [SerializeField] private float clipVolume = 100f;
+    [SerializeField] GameObject blockParticles;
 
     private LevelScript level;
 
+    private GameSession gameStatus;
+
     private void Start()
     {
+        //Encontrar el objeto con el script
         level = FindObjectOfType<LevelScript>();
         level.CountBreakableBlocks();
+        gameStatus = FindObjectOfType<GameSession>();
     }
     private void OnCollisionEnter2D(Collision2D collision)
+    {
+        PlayBlockSFX();
+        Destroy(gameObject);
+        gameStatus.addPoints();
+        TriggerParticles();
+    }
+
+    private void PlayBlockSFX()
     {
         //PlayCliptAtPoint permite emitir sonido en coordenadas especificas
         AudioSource.PlayClipAtPoint(this.clip, transform.position, this.clipVolume);
         level.RemoveBreakableBlock();
-        Destroy(gameObject);
+    }
+
+    private void TriggerParticles()
+    {
+        //Se crea el objeto de particulas y se destruyen en 1 segundo
+        GameObject particles = Instantiate(blockParticles, transform.position, transform.rotation);
+        Destroy(gameObject, 2f);
     }
 }

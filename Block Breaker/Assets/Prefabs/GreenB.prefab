@@ -92,5 +92,10 @@ PrefabInstance:
       propertyPath: clip
       value: 
       objectReference: {fileID: 8300000, guid: 3d163ff344cff9a43b531bcc9d0dd278, type: 3}
+    - target: {fileID: 1968918221937476547, guid: 39974276f26260c458e2a9ebbeee6402,
+        type: 3}
+      propertyPath: blockParticles
+      value: 
+      objectReference: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39974276f26260c458e2a9ebbeee6402, type: 3}
