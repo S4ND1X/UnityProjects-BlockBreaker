@@ -6,8 +6,9 @@ using TMPro;
 public class GameSession : MonoBehaviour
 {
     //Config param
-    [Range(0.1f,10f)][SerializeField] private float gameSpeed = 1f;
+    [Range(0.1f, 10f)] [SerializeField] private float gameSpeed = 1f;
     [SerializeField] int pointsPerBlock = 20;
+    [SerializeField] bool isAutoPlayEnabled = false;
     //Varaible de tipo Text mesh
     [SerializeField] TextMeshProUGUI scoreText;
     //State variables
@@ -33,8 +34,6 @@ public class GameSession : MonoBehaviour
     }
     void Update()
     {
-
-        scoreText.text = currentScore.ToString();
         Time.timeScale = gameSpeed;
     }
 
@@ -42,10 +41,16 @@ public class GameSession : MonoBehaviour
     {
         //Actualizar los valores
         currentScore += pointsPerBlock;
+        scoreText.text = currentScore.ToString();
     }
 
     public void restartScore()
     {
         currentScore = 0;
+    }
+
+    public bool IsAutoPlayEnabled()
+    {
+        return isAutoPlayEnabled;
     }
 }

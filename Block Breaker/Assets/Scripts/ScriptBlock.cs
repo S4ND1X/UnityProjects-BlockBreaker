@@ -12,7 +12,6 @@ public class ScriptBlock : MonoBehaviour
 
     //Cached reference
     private LevelScript level;
-    private GameSession gameStatus;
 
     //State Variables
     [SerializeField] int timesHit; //serialized solo para poder verla
@@ -20,7 +19,6 @@ public class ScriptBlock : MonoBehaviour
     private void Start()
     {
         CountBreakableBlocks();
-        gameStatus = FindObjectOfType<GameSession>();
     }
 
     private void CountBreakableBlocks()
@@ -63,7 +61,7 @@ public class ScriptBlock : MonoBehaviour
 
     private void DestroyBlock()
     {
-        gameStatus.addPoints();
+        FindObjectOfType<GameSession>().addPoints();
         TriggerParticles();
         Destroy(gameObject);
         level.RemoveBreakableBlock();

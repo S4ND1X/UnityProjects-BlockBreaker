@@ -6,18 +6,15 @@ public class Ball : MonoBehaviour{
 
     //Config params
     [SerializeField] private Paddle paddle1;
-
-    //State
-    private Vector2 paddleToBallVector;
-
-    //The user has launch the ball?
-    private bool hasClicked = false;
-
     //Velocity of the ball
     [SerializeField]private float velX = 0f, velY = 10f;
-
     //Array con sonidos de la pelota
     [SerializeField] private AudioClip[] ballSounds;
+    [SerializeField] private float randomVel = 0.2f;
+    //State
+    private Vector2 paddleToBallVector;
+    //The user has launch the ball?
+    private bool hasClicked = false;
     private AudioClip currentClip;
     //Obtener componentes y guardarlos en cache
     private AudioSource myAudioSource;
@@ -61,11 +58,15 @@ public class Ball : MonoBehaviour{
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Vector2 velocityRandom = new Vector2
+            (Random.Range(0f, randomVel),
+            Random.Range(0f, randomVel));
         if (hasClicked) {
             currentClip = ballSounds[Random.Range(0, ballSounds.Length)];
             //Get Component es para obtener un componente en el objeto y acceder a los elementos.
             //PlayOneShot es para que suene sin importar si otro audio suena
             myAudioSource.PlayOneShot(currentClip);
+            myRB.velocity += velocityRandom;
         }
     }
 }
