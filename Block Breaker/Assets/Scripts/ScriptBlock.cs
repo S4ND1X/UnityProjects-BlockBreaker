@@ -15,17 +15,30 @@ public class ScriptBlock : MonoBehaviour
 
     private void Start()
     {
-        //Encontrar el objeto con el script
-        level = FindObjectOfType<LevelScript>();
-        level.CountBreakableBlocks();
+        CountBreakableBlocks();
         gameStatus = FindObjectOfType<GameSession>();
     }
+
+    private void CountBreakableBlocks()
+    {
+        //Encontrar el objeto con el script
+        level = FindObjectOfType<LevelScript>();
+        if (tag.Equals("Breakable"))level.CountBlocks();
+
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(tag.Equals("Breakable"))DestroyBlock();
+
+    }
+
+    private void DestroyBlock()
+    {
         PlayBlockSFX();
-        Destroy(gameObject);
         gameStatus.addPoints();
         TriggerParticles();
+        Destroy(gameObject);
     }
 
     private void PlayBlockSFX()

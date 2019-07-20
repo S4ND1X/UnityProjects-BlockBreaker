@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5881433463132462715}
   - component: {fileID: 5881433463132462712}
   - component: {fileID: 5881433463132462713}
-  - component: {fileID: 5881433463132462714}
+  - component: {fileID: 4638846943724718743}
   m_Layer: 0
-  m_Name: RedB
+  m_Name: BreakableRed
   m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5881433463132462714
+--- !u!114 &4638846943724718743
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

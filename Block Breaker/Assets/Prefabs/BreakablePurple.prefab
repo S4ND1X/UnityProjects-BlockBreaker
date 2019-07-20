@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 5881433463132462726, guid: e99f068ae5fe0de44a8c413f98e64cd7,
         type: 3}
       propertyPath: m_Name
-      value: PurpleB
+      value: BreakablePurple
       objectReference: {fileID: 0}
     - target: {fileID: 5881433463132462726, guid: e99f068ae5fe0de44a8c413f98e64cd7,
         type: 3}
@@ -97,5 +97,6 @@ PrefabInstance:
       propertyPath: blockParticles
       value: 
       objectReference: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5881433463132462714, guid: e99f068ae5fe0de44a8c413f98e64cd7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e99f068ae5fe0de44a8c413f98e64cd7, type: 3}
