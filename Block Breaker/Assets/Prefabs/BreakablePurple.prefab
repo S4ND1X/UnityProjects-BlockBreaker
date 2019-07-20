@@ -97,6 +97,34 @@ PrefabInstance:
       propertyPath: blockParticles
       value: 
       objectReference: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
+    - target: {fileID: 4638846943724718743, guid: e99f068ae5fe0de44a8c413f98e64cd7,
+        type: 3}
+      propertyPath: hitSprites.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638846943724718743, guid: e99f068ae5fe0de44a8c413f98e64cd7,
+        type: 3}
+      propertyPath: maxHits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638846943724718743, guid: e99f068ae5fe0de44a8c413f98e64cd7,
+        type: 3}
+      propertyPath: hitSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c0fc522d0c15dc498f7efbe8b51cb35,
+        type: 3}
+    - target: {fileID: 4638846943724718743, guid: e99f068ae5fe0de44a8c413f98e64cd7,
+        type: 3}
+      propertyPath: hitSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c0fc522d0c15dc498f7efbe8b51cb35,
+        type: 3}
+    - target: {fileID: 4638846943724718743, guid: e99f068ae5fe0de44a8c413f98e64cd7,
+        type: 3}
+      propertyPath: hitSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c0fc522d0c15dc498f7efbe8b51cb35,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 5881433463132462714, guid: e99f068ae5fe0de44a8c413f98e64cd7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e99f068ae5fe0de44a8c413f98e64cd7, type: 3}

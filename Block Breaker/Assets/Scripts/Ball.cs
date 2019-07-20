@@ -61,8 +61,7 @@ public class Ball : MonoBehaviour{
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        collisionName = collision.collider.name;
-        if (hasClicked && (collisionName.Equals("Walls") || collisionName.Equals("Paddle"))) {
+        if (hasClicked) {
             currentClip = ballSounds[Random.Range(0, ballSounds.Length)];
             //Get Component es para obtener un componente en el objeto y acceder a los elementos.
             //PlayOneShot es para que suene sin importar si otro audio suena

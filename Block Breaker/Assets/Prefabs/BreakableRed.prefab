@@ -120,5 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 3d163ff344cff9a43b531bcc9d0dd278, type: 3}
-  clipVolume: 100
   blockParticles: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
+  hitSprites:
+  - {fileID: 21300000, guid: ca49ad5e2dace724c9aecfa96b01ebd3, type: 3}
+  - {fileID: 21300000, guid: 0c0fc522d0c15dc498f7efbe8b51cb35, type: 3}
+  timesHit: 0

@@ -1,17 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ScriptBlock : MonoBehaviour
 {
-
+    //Config param
     [SerializeField] private AudioClip clip;
-    [SerializeField] private float clipVolume = 100f;
-    [SerializeField] GameObject blockParticles;
+    [SerializeField] private GameObject blockParticles;
+    [SerializeField] Sprite[] hitSprites;
 
+    //Cached reference
     private LevelScript level;
-
     private GameSession gameStatus;
+
+    //State Variables
+    [SerializeField] int timesHit; //serialized solo para poder verla
 
     private void Start()
     {
@@ -29,23 +33,46 @@ public class ScriptBlock : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(tag.Equals("Breakable"))DestroyBlock();
+        PlayBlockSFX();
+        HandleHit();
 
+    }
+
+    private void HandleHit()
+    {
+        if (tag.Equals("Breakable"))
+        {
+            timesHit++;
+            int maxHits = hitSprites.Length + 1;
+            if (timesHit >= maxHits)
+            {
+                DestroyBlock();
+            }else
+            {
+                ShowNextSprite();
+            }
+        }
+    }
+
+    private void ShowNextSprite()
+    {
+        int spriteIndex = timesHit - 1;
+        if (hitSprites[spriteIndex] != null) GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+        else Debug.LogError("Block Sprite Missing " + gameObject.name);
     }
 
     private void DestroyBlock()
     {
-        PlayBlockSFX();
         gameStatus.addPoints();
         TriggerParticles();
         Destroy(gameObject);
+        level.RemoveBreakableBlock();
     }
 
     private void PlayBlockSFX()
     {
         //PlayCliptAtPoint permite emitir sonido en coordenadas especificas
-        AudioSource.PlayClipAtPoint(this.clip, transform.position, this.clipVolume);
-        level.RemoveBreakableBlock();
+        AudioSource.PlayClipAtPoint(this.clip, transform.position);
     }
 
     private void TriggerParticles()

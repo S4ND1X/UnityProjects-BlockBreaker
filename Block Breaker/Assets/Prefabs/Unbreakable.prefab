@@ -117,5 +117,6 @@ PrefabInstance:
       propertyPath: clipVolume
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 769115622904026926, guid: 39974276f26260c458e2a9ebbeee6402, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 39974276f26260c458e2a9ebbeee6402, type: 3}
